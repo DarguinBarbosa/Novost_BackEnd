@@ -77,7 +77,7 @@ def correo_api_view(request, pk):
             email_from = settings.EMAIL_HOST_USER
             aprendiz = Aprendiz.objects.filter(email = pk).first()
             recipent_list = [aprendiz.email]
-            html_message = loader.render_to_string('Somos Equipo Novost')
+            html_message = "Somos Novost"
                 # "correo.html",
                 # {
                 #     'user_name': aprendiz.nombresUsuario,
