@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 import random
 
+permission_classes = [IsAuthenticated]
 
 ##################################################################################################################################
 #### USUARIO ####
