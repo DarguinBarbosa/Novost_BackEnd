@@ -63,7 +63,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Novost_BackEnd.urls'
@@ -144,13 +143,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "senanovost@gmail.com"
 EMAIL_HOST_PASSWORD = "pgdkueoraffhcnze"
 
-
-STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'static'),
-)
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Configure Django App for Heroku.
 import django_heroku
