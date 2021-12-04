@@ -145,18 +145,13 @@ EMAIL_HOST_USER = "senanovost@gmail.com"
 EMAIL_HOST_PASSWORD = "SistemaNovost123"
 
 
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}
 STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static'),
 )
-
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals()) 
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
