@@ -142,7 +142,11 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
-
+STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'static')
+)
 STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Configure Django App for Heroku.
