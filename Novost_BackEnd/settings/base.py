@@ -15,9 +15,16 @@ SECRET_KEY = 'django-insecure-a%x(lw#5km*v@jv78yx_h&5%h1rbubekuo_db@cb=7(ibn+jyq
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticated'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
 
 # Application definition
 
@@ -44,6 +51,7 @@ THIRD_APPS = [
     'import_export',
     'rest_framework.authtoken',
     'corsheaders',
+    'django_extensions',
 ]
 
 INSTALLED_APPS  = BASE_APPS + LOCAL_APPS + THIRD_APPS
@@ -132,6 +140,10 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "senanovost@gmail.com"
 EMAIL_HOST_PASSWORD = "SistemaNovost123"
 
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 # Configure Django App for Heroku.
 import django_heroku
