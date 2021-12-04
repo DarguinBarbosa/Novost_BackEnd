@@ -47,7 +47,7 @@ class AprendizSerializer(serializers.ModelSerializer):
 
 class AprendizContraCorreoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Aprendiz
+        model = User
         fields = ('id','nombresUsuario' ,'email','password')
     
     def update(self, instance, validated_data):

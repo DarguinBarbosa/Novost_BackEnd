@@ -75,17 +75,18 @@ def correo_api_view(request, pk):
             length = 12
             password = "".join(random.sample(all, length))
             email_from = settings.EMAIL_HOST_USER
-            aprendiz = Aprendiz.objects.filter(email = pk).first()
+            aprendiz = User.objects.filter(email = pk).first()
             recipent_list = [aprendiz.email]
-            html_message = loader.render_to_string(
-                "correo.html",
-                {
-                    'user_name': aprendiz.nombresUsuario,
-                    'documento': aprendiz.numeroDocumentoUsuario,
-                    'contra': password,
-                    'subject':  "Gracias",
-                })
-            send_mail("Grupo Novost", "nnnnnnn", email_from, to=recipent_list)
+            message = "Hola, esto es un correo prueba"
+            # html_message = loader.render_to_string(
+            #     "correo.html",
+            #     {
+            #         'user_name': aprendiz.nombresUsuario,
+            #         'documento': aprendiz.numeroDocumentoUsuario,
+            #         'contra': password,
+            #         'subject':  "Gracias",
+            #     })
+            send_mail("Grupo Novost", message, email_from,recipent_list)
             
             apr = {
                 'id':aprendiz.id,
