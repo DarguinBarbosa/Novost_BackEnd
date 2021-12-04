@@ -85,7 +85,7 @@ def correo_api_view(request, pk):
                 #     'contra': password,
                 #     'subject':  "Gracias",
                 # })
-            send_mail("Grupo Novost", "Hallo", email_from, recipent_list,fail_silently=True)
+            send_mail("Grupo Novost", "Hallo", email_from, recipent_list)
             
             apr = {
                 'id':aprendiz.id,
