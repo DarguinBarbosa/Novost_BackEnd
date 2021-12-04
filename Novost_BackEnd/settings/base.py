@@ -15,6 +15,7 @@ SECRET_KEY = 'django-insecure-a%x(lw#5km*v@jv78yx_h&5%h1rbubekuo_db@cb=7(ibn+jyq
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -43,7 +44,6 @@ THIRD_APPS = [
     'import_export',
     'rest_framework.authtoken',
     'corsheaders',
-    'django_extensions',
 ]
 
 REST_FRAMEWORK = {
@@ -83,6 +83,12 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 WSGI_APPLICATION = 'Novost_BackEnd.wsgi.application'
 
@@ -138,6 +144,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "senanovost@gmail.com"
 EMAIL_HOST_PASSWORD = "SistemaNovost123"
 
+
 GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
@@ -147,8 +154,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static')
 )
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Configure Django App for Heroku.
 import django_heroku
-django_heroku.settings(locals())
+django_heroku.settings(locals()) 
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'

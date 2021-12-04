@@ -24,7 +24,9 @@ from rest_framework.permissions import IsAuthenticated
 def user_api_view(request):
     permission_classes = [IsAuthenticated,]
     if request.method == 'GET':
+        permission_classes = [IsAuthenticated,]
         users = User.objects.all()
+        permission_classes = [IsAuthenticated,]                     
         users_serializer = UserSerializer(users, many = True)
         return Response(users_serializer.data, status=status.HTTP_200_OK)
 
