@@ -48,7 +48,7 @@ class Novedad (models.Model):
     fechaInicio = models.CharField(max_length=100,blank=True)
     causa = models.CharField(max_length=100,blank=True)
     duracionA = models.IntegerField (blank=True,default=0)
-    acta = models.FileField(upload_to='solicitudes/',blank=True)
+    acta = models.FileField(upload_to='static',blank=True)
     fechaSolicitud= models.CharField(max_length=100)
     aprendizNovedad = models.ForeignKey(Aprendiz, on_delete = models.CASCADE)
     tipoNovedad = models.ForeignKey(TipoNovedad, on_delete = models.CASCADE)
