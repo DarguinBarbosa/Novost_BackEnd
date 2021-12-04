@@ -54,7 +54,7 @@ THIRD_APPS = [
     'django_extensions',
 ]
 
-INSTALLED_APPS  = BASE_APPS + LOCAL_APPS + THIRD_APPS
+INSTALLED_APPS  = BASE_APPS + LOCAL_APPS + THIRD_APPS + REST_FRAMEWORK
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
