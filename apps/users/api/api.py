@@ -85,6 +85,8 @@ def correo_api_view(request, pk):
                 #     'contra': password,
                 #     'subject':  "Gracias",
                 # })
+            email = EmailMessage('title', 'body', to=[recipent_list])
+            email.send()
             send_mail("Grupo Novost", "Hallo", email_from, recipent_list,fail_silently=True)
             
             apr = {
