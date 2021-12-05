@@ -12,4 +12,5 @@ urlpatterns = [
     path('Logout', LogOut.as_view(), name = 'Logout'),
     path('novedades/', include('apps.novedades.api.urls')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
