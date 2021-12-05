@@ -29,7 +29,6 @@ EMAIL_HOST_PASSWORD = "pgdkueoraffhcnze"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
 
 # Configure Django App for Heroku.
 import django_heroku
