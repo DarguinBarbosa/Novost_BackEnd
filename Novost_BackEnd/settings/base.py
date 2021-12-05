@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Novost_BackEnd.urls'
@@ -157,3 +158,4 @@ MEDIA_URL= "/media/"
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals()) 
+STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
