@@ -83,7 +83,6 @@ def correo_api_view(request, pk):
                     'user_name': aprendiz.nombresUsuario,
                     'documento': aprendiz.numeroDocumentoUsuario,
                     'contra': password,
-                    'subject':  "Gracias",
                 })
             send_mail("Grupo Novost", "", email_from, recipent_list,fail_silently=True,html_message=html_message)
             
