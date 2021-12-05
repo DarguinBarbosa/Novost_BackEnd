@@ -1,1 +1,3 @@
-web: python manage.py collectstatic --noinput; bin/gunicorn_django --workers=4 --bind=0.0.0.0:$PORT settings.py 
+release: python manage.py makemigrations --no-input
+release: python manage.py migrate --no-input
+web: gunicorn Novost_BackEnd.wsgi 
