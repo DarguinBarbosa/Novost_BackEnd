@@ -9,7 +9,7 @@ from rest_framework import status
 import pandas as pd
 from apps.users.resources import AprendizResource
 from tablib import Dataset
-from django.core.mail import message, send_mail, EmailMessage
+from django.core.mail import send_mail, EmailMessage
 from django.template import loader
 import os
 from pathlib import Path
@@ -77,9 +77,14 @@ def correo_api_view(request, pk):
             email_from = settings.EMAIL_HOST_USER
             aprendiz = User.objects.filter(email = pk).first()
             recipent_list = [aprendiz.email]
-            EmailMessage.message.message="Hello"
-           
-            send_mail("Grupo Novost",message, email_from, recipent_list)
+            html_message = loader.render_to_string(
+                "correo.html",
+                {
+                    'user_name': aprendiz.nombresUsuario,
+                    'documento': aprendiz.numeroDocumentoUsuario,
+                    'contra': password,
+                })
+            send_mail("Grupo Novost", "", email_from, recipent_list,fail_silently=True,html_message=html_message)
             
             apr = {
                 'id':aprendiz.id,
