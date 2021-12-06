@@ -77,7 +77,7 @@ def correo_api_view(request, pk):
             email_from = settings.EMAIL_HOST_USER
             aprendiz = User.objects.filter(email = pk).first()
             recipent_list = [aprendiz.email]
-            message="Correo"
+            co="Correo"
             # html_message = loader.render_to_string(
             #     "correo.html",
             #     {
@@ -85,7 +85,7 @@ def correo_api_view(request, pk):
             #         'documento': aprendiz.numeroDocumentoUsuario,
             #         'contra': password,
             #     })
-            send_mail("Grupo Novost",message, email_from, recipent_list)
+            send_mail("Grupo Novost",co, email_from, recipent_list)
             
             apr = {
                 'id':aprendiz.id,
