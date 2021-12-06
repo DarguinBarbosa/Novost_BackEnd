@@ -46,11 +46,7 @@ THIRD_APPS = [
     'corsheaders',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication', 
-    ],
-}
+
 INSTALLED_APPS  = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
