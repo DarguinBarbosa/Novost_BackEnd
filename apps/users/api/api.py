@@ -77,7 +77,7 @@ def correo_api_view(request, pk):
             email_from = settings.EMAIL_HOST_USER
             aprendiz = User.objects.filter(email = pk).first()
             recipent_list = [aprendiz.email]
-            message.message="Hello"
+            EmailMessage.message.message="Hello"
            
             send_mail("Grupo Novost",message, email_from, recipent_list)
             
