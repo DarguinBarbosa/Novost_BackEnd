@@ -46,7 +46,11 @@ THIRD_APPS = [
     'corsheaders',
 ]
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication', 
+    ],
+}
 INSTALLED_APPS  = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
@@ -59,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'Novost_BackEnd.urls'
@@ -137,16 +142,15 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "senanovost@gmail.com"
-EMAIL_HOST_PASSWORD = 'pcfebyiyinnfvton'
+EMAIL_HOST_PASSWORD = "pcfebyiyinnfvton"
 
+STATIC_ROOT =os.path.join(BASE_DIR,'../staticfiles')
+STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'../static'),
 )
 
-STATIC_ROOT =os.path.join(BASE_DIR,'../staticfiles')
-STATIC_URL = '/static/'
-
-
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals()) 
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
